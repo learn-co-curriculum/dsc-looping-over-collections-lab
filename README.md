@@ -14,6 +14,8 @@ In the last lesson, we worked with some of our travel data.  Let's retrieve a li
 
 
 ```python
+# If you're viewing this lab on learn, uncomment the next line to install xlrd on the docker container
+# !pip install xlrd 
 import pandas
 file_name = './cities.xlsx'
 travel_df = pandas.read_excel(file_name)
@@ -25,6 +27,8 @@ Next, we retrieve the first three city names, stored as the `'City'` attribute o
 
 ```python
 import matplotlib.pyplot as plt
+
+%matplotlib inline
 
 x_values = [cities[0]['City'], cities[1]['City'], cities[2]['City']]
 y_values = [cities[0]['Population'], cities[1]['Population'], cities[2]['Population']]
