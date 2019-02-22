@@ -23,15 +23,23 @@ Next, we retrieve the first three city names, stored as the `'City'` attribute o
 
 
 ```python
-import plotly
+import matplotlib.pyplot as plt
 
-plotly.offline.init_notebook_mode(connected=True)
+%matplotlib inline
 
 x_values = [cities[0]['City'], cities[1]['City'], cities[2]['City']]
 y_values = [cities[0]['Population'], cities[1]['Population'], cities[2]['Population']]
-trace_first_three_pops = {'x': x_values, 'y': y_values, 'type': 'bar'}
-plotly.offline.iplot([trace_first_three_pops])
+ 
+plt.bar(x_values, y_values)
+plt.ylabel('Population')
+plt.title('City Populations')
+ 
+plt.show()
 ```
+
+
+![png](index_files/index_7_0.png)
+
 
 Of course, as you may have spotted, there is a good amount of repetition in displaying this data.  Just take a look at how we retrieved the data for our `x_values` and `y_values`. And you'll notice that, unless we know the exact number of cities and populations in our excel file, this method of retrieving data might miss some data or try to access values that don't exist. 
 
@@ -58,6 +66,16 @@ buenos_aires
 ```
 
 
+
+
+    {'City': 'Buenos Aires',
+     'Country': 'Argentina',
+     'Population': 2891000,
+     'Area': 4758}
+
+
+
+
 ```python
 # here we want to find just the area of buenos_aires
 buenos_aires_area = None
@@ -67,6 +85,13 @@ for key, value in buenos_aires.items():
         buenos_aires_area = value
 buenos_aires_area
 ```
+
+
+
+
+    4758
+
+
 
 Now that we have a bit more familiarity with our dictionaries, we can move on to gathering all the information we need to create our traces. 
 
@@ -78,6 +103,13 @@ city_indices = list(range(0,12))
 city_indices # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 ```
 
+
+
+
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+
+
 Now, using the `cities` list, we want to create a list of the names for each city. Loop through each city and append it's name (`'City'`) to the `city_names` list. 
 
 
@@ -85,6 +117,24 @@ Now, using the `cities` list, we want to create a list of the names for each cit
 city_names = [city['City'] for city in cities]
 city_names
 ```
+
+
+
+
+    ['Buenos Aires',
+     'Toronto',
+     'Pyeongchang',
+     'Marakesh',
+     'Albuquerque',
+     'Los Cabos',
+     'Greenville',
+     'Archipelago Sea',
+     'Walla Walla Valley',
+     'Salina Island',
+     'Solta',
+     'Iguazu Falls']
+
+
 
 Your task is to assign the variable `names_and_ranks` to a list, with each element equal to the city name and it's corresponding rank.  For example, the first element would be, `"1. Buenos Aires"` and the second would be `"2. Toronto"`. Luckily for us, the list of cities that we read from our excel file is already in order my most populous to least. So, all we need to do is add numbers 1 through 12 to the beginning of each city name.
 
@@ -100,11 +150,36 @@ names_and_ranks
 ```
 
 
+
+
+    ['1. Buenos Aires',
+     '2. Toronto',
+     '3. Pyeongchang',
+     '4. Marakesh',
+     '5. Albuquerque',
+     '6. Los Cabos',
+     '7. Greenville',
+     '8. Archipelago Sea',
+     '9. Walla Walla Valley',
+     '10. Salina Island',
+     '11. Solta',
+     '12. Iguazu Falls']
+
+
+
+
 ```python
 names_and_ranks[0] # '1. Buenos Aires'
 names_and_ranks[1] # '2. Toronto'
 names_and_ranks[-1] # '12. Iguazu Falls'
 ```
+
+
+
+
+    '12. Iguazu Falls'
+
+
 
 Ok, now use another for loop to iterate through our list of `cities` and create a new list called `city_populations` that had the population for each city (`Population`).
 
@@ -118,66 +193,102 @@ city_populations
 ```
 
 
+
+
+    [2891000,
+     2800000,
+     2581000,
+     928850,
+     559277,
+     287651,
+     84554,
+     60000,
+     32237,
+     4000,
+     1700,
+     0]
+
+
+
+
 ```python
 city_populations[0] # 2891000
 city_populations[1] # 2800000
 city_populations[-1] # 0
 ```
 
-Great! Now we can begin to plot this data.  First, let's create a trace of our populations and set it to the variable `trace_populations`.
+
+
+
+    0
+
+
+
+Great! Now we can begin to plot this data. Again, we'll used matplotlib to create a bar graph with our cities and their respective population data. To do this, we use the .bar() function and pass in our x-axis and y-axis values, add a label and title (if we want), and finally we call the .show() method from matplotlib to view our new bar graph.
+
+    Note: In the example below, we are adding a custom rotation for our x-axis labels so that they do not overlap.
 
 
 ```python
-trace_populations = {'x': names_and_ranks, 
-                     'y': city_populations, 
-                     'text': names_and_ranks, 
-                     'type': 'bar', 
-                     'name': 'Population'}
+plt.bar(names_and_ranks, city_populations)
+plt.xticks(rotation='vertical')
+plt.ylabel('Population')
+plt.title('City Populations')
+plt.show()
 ```
 
 
-```python
-import plotly
-plotly.offline.init_notebook_mode(connected=True)
-plotly.offline.iplot([trace_populations])
-```
+![png](index_files/index_26_0.png)
+
 
 Now we want declare a variable called `city_areas` that points to a list of all of the areas of the cities.  Let's use a `for` loop to iterate through our `cities` and have `city_areas` equal to each area of the city.  
 
 
 ```python
-city_areas = [city['Area'] for city in cities]
+city_areas = []
+for city in cities:
+    city_areas.append(city['Area'])
 city_areas
 ```
 
 
-```python
-trace_areas = {'x': names_and_ranks, 'y': city_areas, 'text': names_and_ranks, 'type': 'bar', 'name': 'Area'}
-```
-
-Since there is such a disparity between the size of numbers that represent the population compared to the size of the numbers that represent the areas for each city, below, we are going to represent the population numbers in hundreds. That is, we will take each population and divide it by 100 (i.e. 5,000,000/100 = 500,000.00) This is purely for the purposes of seeing our numbers plotted. 
-
-No need to worry about the code below, just run the following cells to see our bar graph and keep in mind that the populations all have two more zeros to their real number.
 
 
-```python
-altered_populations = []
-for population in city_populations:
-    altered_populations.append(population/100)
+    [4758, 2731, 3194, 200, 491, 3750, 68, 8300, 33, 27, 59, 672]
 
-trace_populations = {'x': names_and_ranks, 
-                     'y': altered_populations, 
-                     'text': names_and_ranks, 
-                     'type': 'bar', 
-                     'name': 'Population'}
-```
+
+
+Now that we have the city areas and populations, let's plot them to see how the size of each city compares to its population.
 
 
 ```python
-import plotly
-plotly.offline.init_notebook_mode(connected=True)
-plotly.offline.iplot([trace_populations, trace_areas])
+plt.bar(names_and_ranks, city_populations)
+
+plt.ylabel('Population')
+plt.xlabel('Cities')
+plt.title('City Populations')
+plt.xticks(rotation=45)
+plt.show()
 ```
+
+
+![png](index_files/index_30_0.png)
+
+
+
+```python
+plt.bar(names_and_ranks, city_areas)
+plt.ylabel('Area')
+plt.xlabel('Cities')
+plt.title('City Areas')
+plt.xticks(rotation=45)
+ 
+plt.show()
+```
+
+
+![png](index_files/index_31_0.png)
+
 
 ### Summary
 
