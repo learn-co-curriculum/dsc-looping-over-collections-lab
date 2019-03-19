@@ -38,7 +38,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_7_0.png)
+![png](index_files/index_3_0.png)
 
 
 Of course, as you may have spotted, there is a good amount of repetition in displaying this data.  Just take a look at how we retrieved the data for our `x_values` and `y_values`. And you'll notice that, unless we know the exact number of cities and populations in our excel file, this method of retrieving data might miss some data or try to access values that don't exist. 
@@ -238,7 +238,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_26_0.png)
+![png](index_files/index_20_0.png)
 
 
 Now we want declare a variable called `city_areas` that points to a list of all of the areas of the cities.  Let's use a `for` loop to iterate through our `cities` and have `city_areas` equal to each area of the city.  
@@ -272,7 +272,7 @@ plt.show()
 ```
 
 
-![png](index_files/index_30_0.png)
+![png](index_files/index_24_0.png)
 
 
 
@@ -287,9 +287,9 @@ plt.show()
 ```
 
 
-![png](index_files/index_31_0.png)
+![png](index_files/index_25_0.png)
 
 
-### Summary
+## Summary
 
 In this section we saw how we can use `for` loops to go through elements of a list and perform the same operation on each.  By using `for` loops we were able to reduce the amount of code that we wrote and while also writing more expressive code.
