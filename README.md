@@ -173,6 +173,6 @@ plt.xticks(rotation='vertical')
 plt.show()
 ```
 
-### Summary
+## Summary
 
 In this section we saw how we can use `for` loops to go through elements of a list and perform the same operation on each.  By using `for` loops we were able to reduce the amount of code that we wrote and while also writing more expressive code.
