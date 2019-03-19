@@ -13,9 +13,9 @@ In the last lesson, we worked with some of our travel data.  Let's retrieve a li
 
 
 ```python
-import pandas
+import pandas as pd
 file_name = './cities.xlsx'
-travel_df = pandas.read_excel(file_name)
+travel_df = pd.read_excel(file_name)
 cities = travel_df.to_dict('records')
 ```
 
