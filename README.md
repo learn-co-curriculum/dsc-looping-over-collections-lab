@@ -58,6 +58,8 @@ So in this lesson, we will use our `for` loop to display information about our t
 
 ## Instructions
 
+Before we get into creating graphs from our cities data, let's get a bit more comfortable with the data we are working with. Let's see if we can iterate through just one element (i.e. a city **dictionary** object) to get the **area**. 
+
 
 ```python
 buenos_aires = cities[0]
@@ -73,8 +75,6 @@ buenos_aires
      'Area': 4758}
 
 
-
-Before we get into creating graphs from our cities data, let's get a bit more comfortable with the data we are working with. Let's see if we can iterate through just one element (i.e. a city **dictionary** object) to get the **area**. 
 
 
 ```python
@@ -94,6 +94,10 @@ buenos_aires_area
 
 
 
+Now that we have a bit more familiarity with our dictionaries, we can move on to gathering all the information we need to create our traces. 
+
+Our `cities` list contains information about the top 12 cities.  For our upcoming iteration tasks, it will be useful to have a list of the numbers 0 through 11.  Use what we know about `len` and `range`to generate a list of numbers 1 through 11.  Assign this to a variable called `city_indices`.
+
 
 ```python
 city_indices = list(range(0,12))
@@ -107,9 +111,7 @@ city_indices # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 
 
-Now that we have a bit more familiarity with our dictionaries, we can move on to gathering all the information we need to create our traces. 
-
-Our `cities` list contains information about the top 12 cities.  For our upcoming iteration tasks, it will be useful to have a list of the numbers 0 through 11.  Use what we know about `len` and `range`to generate a list of numbers 1 through 11.  Assign this to a variable called `city_indices`.
+Now, using the `cities` list, we want to create a list of the names for each city. Loop through each city and append it's name (`'City'`) to the `city_names` list. 
 
 
 ```python
@@ -135,7 +137,9 @@ city_names
 
 
 
-Now, using the `cities` list, we want to create a list of the names for each city. Loop through each city and append it's name (`'City'`) to the `city_names` list. 
+Your task is to assign the variable `names_and_ranks` to a list, with each element equal to the city name and it's corresponding rank.  For example, the first element would be, `"1. Buenos Aires"` and the second would be `"2. Toronto"`. Luckily for us, the list of cities that we read from our excel file is already in order my most populous to least. So, all we need to do is add numbers 1 through 12 to the beginning of each city name.
+
+Use a `for` loop and the lists `city_indices` and `city_names` to accomplish this.  We'll need to perform some nifty string interpolation to format our strings properly.  Check out [f-string interpolation](https://www.programiz.com/python-programming/string-interpolation#f) to see how we can pass values into a string.  Remember that list indices start at zero, but we want our `names_and_ranks` list to start at one!
 
 
 ```python
@@ -164,10 +168,6 @@ names_and_ranks
 
 
 
-Your task is to assign the variable `names_and_ranks` to a list, with each element equal to the city name and it's corresponding rank.  For example, the first element would be, `"1. Buenos Aires"` and the second would be `"2. Toronto"`. Luckily for us, the list of cities that we read from our excel file is already in order my most populous to least. So, all we need to do is add numbers 1 through 12 to the beginning of each city name.
-
-Use a `for` loop and the lists `city_indices` and `city_names` to accomplish this.  We'll need to perform some nifty string interpolation to format our strings properly.  Check out [f-string interpolation](https://www.programiz.com/python-programming/string-interpolation#f) to see how we can pass values into a string.  Remember that list indices start at zero, but we want our `names_and_ranks` list to start at one!
-
 
 ```python
 names_and_ranks[0] # '1. Buenos Aires'
@@ -181,6 +181,8 @@ names_and_ranks[-1] # '12. Iguazu Falls'
     '12. Iguazu Falls'
 
 
+
+Ok, now use another for loop to iterate through our list of `cities` and create a new list called `city_populations` that had the population for each city (`Population`).
 
 
 ```python
@@ -209,8 +211,6 @@ city_populations
 
 
 
-Ok, now use another for loop to iterate through our list of `cities` and create a new list called `city_populations` that had the population for each city (`Population`).
-
 
 ```python
 city_populations[0] # 2891000
@@ -225,6 +225,10 @@ city_populations[-1] # 0
 
 
 
+Great! Now we can begin to plot this data. Again, we'll used matplotlib to create a bar graph with our cities and their respective population data. To do this, we use the `.bar()` function and pass in our x-axis and y-axis values, add a label and title (if we want), and finally we call the `.show()` method from matplotlib to view our new bar graph. 
+
+> **Note:** In the example below, we are adding a custom rotation for our x-axis labels so that they do not overlap.
+
 
 ```python
 plt.bar(names_and_ranks, city_populations)
@@ -235,12 +239,10 @@ plt.show()
 ```
 
 
-![png](index_files/index_21_0.png)
+![png](index_files/index_22_0.png)
 
 
-Great! Now we can begin to plot this data. Again, we'll used matplotlib to create a bar graph with our cities and their respective population data. To do this, we use the `.bar()` function and pass in our x-axis and y-axis values, add a label and title (if we want), and finally we call the `.show()` method from matplotlib to view our new bar graph. 
-
-> **Note:** In the example below, we are adding a custom rotation for our x-axis labels so that they do not overlap.
+Now we want declare a variable called `city_areas` that points to a list of all of the areas of the cities.  Let's use a `for` loop to iterate through our `cities` and have `city_areas` equal to each area of the city.  
 
 
 ```python
@@ -257,7 +259,7 @@ city_areas
 
 
 
-Now we want declare a variable called `city_areas` that points to a list of all of the areas of the cities.  Let's use a `for` loop to iterate through our `cities` and have `city_areas` equal to each area of the city.  
+Now that we have the city areas and populations, let's plot them to see how the size of each city compares to its population. 
 
 
 ```python
@@ -271,10 +273,8 @@ plt.show()
 ```
 
 
-![png](index_files/index_25_0.png)
+![png](index_files/index_26_0.png)
 
-
-Now that we have the city areas and populations, let's plot them to see how the size of each city compares to its population. 
 
 
 ```python
