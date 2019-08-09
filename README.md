@@ -2,7 +2,7 @@
 # Looping Over Collections - Lab
 
 ## Introduction
-In this lab, we will be practicing what we know about for loops. We will use them to reduce the amount of code we write by hand to iterate through collections. We will use data from our excel file, `cities.xlsx`, that had data on different cities, their populations, and their areas. Finally, we will use this information to plot and compare each city. Let's get started!
+In this lab, we will be practicing what we know about for loops. We will use them to reduce the amount of code we write by hand to iterate through collections. We will use data from the excel file, `cities.xlsx`, that has data on different cities, their populations, and their areas. Finally, we will use this information to plot and compare each city. Let's get started!
 
 ## Objectives
 You will be able to:
@@ -10,19 +10,17 @@ You will be able to:
 
 ## Identifying When To Use a For Loop
 
-In the last lesson, we worked with some of our travel data.  Let's retrieve a list with our travel information again from excel.  First, we read the information from excel as a list of dictionaries, with each dictionary representing a location.  And we assign this list to the variable `cities`.
+In the last lesson, we worked with some of our travel data.  Additional data has been compiled in the `cities.xlsx` excel spreadsheet. Let's retrieve this data from excel using the package, pandas. Don't worry if pandas feels unfamiliar, it will be covered in detail later. For now, just follow the provided code and get a feel for what is happening. First, read the information from excel as a list of dictionaries, with each dictionary representing a location. Then, assign this list to the variable `cities`.
 
 
 ```python
-# If you're viewing this lab on learn, uncomment the next line to install xlrd on the docker container
-# !pip install xlrd 
 import pandas as pd
 file_name = './cities.xlsx'
 travel_df = pd.read_excel(file_name)
 cities = travel_df.to_dict('records')
 ```
 
-Next, we retrieve the first three city names, stored as the `'City'` attribute of each dictionary, and `'Population'` of each of the cities.  Then we plot the names as our `x_values` and the populations as our `y_values`.
+Next, retrieve the first three city names, stored as the `'City'` attribute of each dictionary, and `'Population'` of each of the cities.  Then plot the names as our `x_values` and the populations as our `y_values` using the package, matplotlib. Again, don't worry about understanding all of the details behind what matplotlib is doing. It will be covered in more detail soon.
 
 
 ```python
@@ -73,7 +71,7 @@ buenos_aires_area = None
 buenos_aires_area
 ```
 
-Now that we have a bit more familiarity with our dictionaries, we can move on to gathering all the information we need to create our traces. 
+Now that we have a bit more familiarity with our dictionaries, we can move to gathering all the information we need to create our traces. 
 
 Our `cities` list contains information about the top 12 cities.  For our upcoming iteration tasks, it will be useful to have a list of the numbers 0 through 11.  Use what we know about `len` and `range`to generate a list of numbers 1 through 11.  Assign this to a variable called `city_indices`.
 
@@ -92,7 +90,7 @@ city_names = []
 city_names
 ```
 
-Your task is to assign the variable `names_and_ranks` to a list, with each element equal to the city name and its corresponding rank.  For example, the first element would be, `"1. Buenos Aires"` and the second would be `"2. Toronto"`. Luckily for us, the list of cities that we read from our excel file is already in order my most populous to least. So, all we need to do is add numbers 1 through 12 to the beginning of each city name.
+Your task is to assign the variable `names_and_ranks` to a list, with each element equal to the city name and its corresponding rank.  For example, the first element would be, `"1. Buenos Aires"` and the second would be `"2. Toronto"`. Luckily for us, the list of cities that we read from our excel file is already in order by most populous to least. So, all we need to do is add numbers 1 through 12 to the beginning of each city name.
 
 Use a `for` loop and the lists `city_indices` and `city_names` to accomplish this.  We'll need to perform some nifty string interpolation to format our strings properly.  Check out [f-string interpolation](https://www.programiz.com/python-programming/string-interpolation#f) to see how we can pass values into a string.  Remember that list indices start at zero, but we want our `names_and_ranks` list to start at one!
 
@@ -111,7 +109,7 @@ print(names_and_ranks[1]) # '2. Toronto'
 print(names_and_ranks[-1]) # '12. Iguazu Falls'
 ```
 
-Ok, now use another for loop to iterate through our list of `cities` and create a new list called `city_populations` that had the population for each city (`Population`).
+Ok, now use another for loop to iterate through our list of `cities` and create a new list called `city_populations` that has the population for each city (`Population`).
 
 
 ```python
