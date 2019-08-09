@@ -10,7 +10,7 @@ You will be able to:
 
 ## Identifying When To Use a For Loop
 
-In the last lesson, we worked with some of our travel data.  Additional data has been compiled in the `cities.xlsx` excel spreadsheet. Let's retrieve this data from excel using the package, pandas. Don't worry if pandas feels unfamiliar, it will be covered in detail later. For now, just follow the provided code and get a feel for what is happening. First, read the information from excel as a list of dictionaries, with each dictionary representing a location. Then, assign this list to the variable `cities`.
+In the last lesson, we worked with some of our travel data.  Additional data has been compiled in the `cities.xlsx` excel spreadsheet. Let's retrieve this data from excel using the pandas library. Don't worry if pandas feels unfamiliar, it will be covered in detail later. For now, just follow the provided code and get a feel for what is happening. First, read the information from excel as a list of dictionaries, with each dictionary representing a location. Then, assign this list to the variable `cities`.
 
 
 ```python
@@ -29,7 +29,7 @@ travel_df = pd.read_excel(file_name)
 cities = travel_df.to_dict('records')
 ```
 
-Next, retrieve the first three city names, stored as the `'City'` attribute of each dictionary, and `'Population'` of each of the cities.  Then plot the names as our `x_values` and the populations as our `y_values` using the package, matplotlib. Again, don't worry about understanding all of the details behind what matplotlib is doing. It will be covered in more detail soon.
+Next, retrieve the first three city names, stored as the `'City'` attribute of each dictionary, and `'Population'` of each of the cities.  Then plot the names as our `x_values` and the populations as our `y_values` using the matplotlib library. Again, don't worry about understanding all of the details behind what matplotlib is doing. It will be covered in more detail soon.
 
 
 ```python
