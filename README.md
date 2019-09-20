@@ -2,7 +2,7 @@
 # Looping Over Collections - Lab
 
 ## Introduction
-In this lab, we will be practicing what we know about for loops. We will use them to reduce the amount of code we write by hand to iterate through collections. We will use data from the excel file, `cities.xlsx`, that has data on different cities, their populations, and their areas. Finally, we will use this information to plot and compare each city. Let's get started!
+In this lab, we will be practicing what we know about `for` loops. We will use them to reduce the amount of code we write by hand to iterate through collections. We will use data from the excel file, `cities.xlsx`, that has data on different cities, their populations, and their areas. Finally, we will use this information to plot and compare each city. Let's get started!
 
 ## Objectives
 You will be able to:
@@ -20,7 +20,7 @@ travel_df = pd.read_excel(file_name)
 cities = travel_df.to_dict('records')
 ```
 
-Next, retrieve the first three city names, stored as the `'City'` attribute of each dictionary, and `'Population'` of each of the cities.  Then plot the names as our `x_values` and the populations as our `y_values` using the matplotlib library. Again, don't worry about understanding all of the details behind what matplotlib is doing. It will be covered in more detail soon.
+Next, retrieve the first three city names, stored as the `'City'` attribute of each dictionary, and `'Population'` of each of the cities.  Then plot the names as our `x_values` and the populations as our `y_values` using the `matplotlib` library. Again, don't worry about understanding all of the details behind what `matplotlib` is doing. It will be covered in more detail soon.
 
 
 ```python
@@ -50,7 +50,7 @@ y_values = [cities[0]['Population'], cities[1]['Population'], cities[2]['Populat
 
 As we can see, if we have any more than 3 lines of data, our `x_values` and `y_values` will be incomplete, and if we had only 2 lines of data, our code would break.
 
-So in this lesson, we will use our `for` loop to display information about our travel locations with less repetition and more accuracy.
+So in this lesson, we will use `for` loop to display information about our travel locations with less repetition and more accuracy.
 
 ## Instructions
 
@@ -73,7 +73,7 @@ buenos_aires_area
 
 Now that we have a bit more familiarity with our dictionaries, we can move to gathering all the information we need to create our traces. 
 
-Our `cities` list contains information about the top 12 cities.  For our upcoming iteration tasks, it will be useful to have a list of the numbers 0 through 11.  Use what we know about `len` and `range`to generate a list of numbers 1 through 11.  Assign this to a variable called `city_indices`.
+Our `cities` list contains information about the top 12 cities.  For our upcoming iteration tasks, it will be useful to have a list of the numbers 0 through 11.  Use what we know about `len` and `range`to generate a list of numbers 0 through 11.  Assign this to a variable called `city_indices`.
 
 
 ```python
@@ -109,7 +109,7 @@ print(names_and_ranks[1]) # '2. Toronto'
 print(names_and_ranks[-1]) # '12. Iguazu Falls'
 ```
 
-Ok, now use another for loop to iterate through our list of `cities` and create a new list called `city_populations` that has the population for each city (`Population`).
+Ok, now use another `for` loop to iterate through our list of `cities` and create a new list called `city_populations` that has the population for each city (`Population`).
 
 
 ```python
@@ -126,7 +126,7 @@ print(city_populations[1]) # 2800000
 print(city_populations[-1]) # 0
 ```
 
-Great! Now we can begin to plot this data. Again, we'll used matplotlib to create a bar graph with our cities and their respective population data. To do this, we use the `.bar()` function and pass in our x-axis and y-axis values, add a label and title (if we want), and finally we call the `.show()` method from matplotlib to view our new bar graph. 
+Great! Now we can begin to plot this data. Again, we'll used `matplotlib` to create a bar graph with our cities and their respective population data. To do this, we use the `.bar()` function and pass in our x-axis and y-axis values, add a label and title, and finally we call the `.show()` function to view our new bar graph. 
 
 > **Note:** In the example below, we are adding a custom rotation for our x-axis labels so that they do not overlap.
 
@@ -144,6 +144,7 @@ Now we want declare a variable called `city_areas` that points to a list of all 
 
 ```python
 city_areas = []
+#write a for loop that adds the 'Area' of each city to the list city_areas
 ```
 
 Now that we have the city areas and populations, let's plot them to see how the size of each city compares to its population. 
