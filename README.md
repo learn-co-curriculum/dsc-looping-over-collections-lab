@@ -6,7 +6,7 @@ In this lab, we will be practicing what we know about `for` loops. We will use t
 
 ## Objectives
 You will be able to:
-* Use loops to iterate over a collection of records
+- Use loops to iterate over a collection of records
 
 ## Identifying When To Use a For Loop
 
