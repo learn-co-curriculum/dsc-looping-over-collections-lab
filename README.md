@@ -6,11 +6,11 @@ In this lab, we will be practicing what we know about `for` loops. We will use t
 
 ## Objectives
 You will be able to:
-- Use loops to iterate over a collection of records
+* Use a `for` loop to iterate over a collection
 
 ## Identifying When To Use a For Loop
 
-In the last lesson, we worked with some of our travel data.  Additional data has been compiled in the `cities.xlsx` excel spreadsheet. Let's retrieve this data from excel using the pandas library. Don't worry if pandas feels unfamiliar, it will be covered in detail later. For now, just follow the provided code and get a feel for what is happening. First, read the information from excel as a list of dictionaries, with each dictionary representing a location. Then, assign this list to the variable `cities`.
+In the last lesson, we worked with some of our travel data.  Additional data has been compiled in the `cities.xlsx` excel spreadsheet. Let's retrieve this data from excel using the Pandas library. Don't worry if Pandas feels unfamiliar, it will be covered in detail later. For now, just follow the provided code and get a feel for what is happening. First, read the information from the excel file as a list of dictionaries, with each dictionary representing a location. Then, assign this list to the variable `cities`.
 
 
 ```python
