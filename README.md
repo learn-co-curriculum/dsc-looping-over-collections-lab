@@ -114,9 +114,7 @@ Ok, now use another `for` loop to iterate through our list of `cities` and creat
 
 ```python
 city_populations = []
-for city in cities:
-    city_populations.append(city['Population'])
-city_populations # use a for loop to iterate through the list of cities with their corresponding population
+# use a for loop to iterate through the list of cities with their corresponding population
 ```
 
 
