@@ -115,7 +115,9 @@ Now, using the `cities` list, we want to create a list of the names for each cit
 
 
 ```python
-city_names = [city['City'] for city in cities]
+city_names = []
+for city in cities:
+    city_names.append(city['City'])
 city_names
 ```
 
