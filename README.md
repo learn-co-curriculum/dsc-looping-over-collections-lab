@@ -1,11 +1,12 @@
-
 # Looping Over Collections - Lab
 
 ## Introduction
 In this lab, we will be practicing what we know about `for` loops. We will use them to reduce the amount of code we write by hand to iterate through collections. We will use data from the excel file, `cities.xlsx`, that has data on different cities, their populations, and their areas. Finally, we will use this information to plot and compare each city. Let's get started!
 
 ## Objectives
+
 You will be able to:
+
 * Use a `for` loop to iterate over a collection
 
 ## Identifying When To Use a For Loop
@@ -65,7 +66,9 @@ plt.show()
 ```
 
 
+    
 ![png](index_files/index_5_0.png)
+    
 
 
 Of course, as you may have spotted, there is a good amount of repetition in displaying this data.  Just take a look at how we retrieved the data for our `x_values` and `y_values`. And you'll notice that, unless we know the exact number of cities and populations in our excel file, this method of retrieving data might miss some data or try to access values that don't exist. 
@@ -348,7 +351,9 @@ plt.show()
 ```
 
 
+    
 ![png](index_files/index_34_0.png)
+    
 
 
 Now we want declare a variable called `city_areas` that points to a list of all of the areas of the cities.  Let's use a `for` loop to iterate through our `cities` and have `city_areas` equal to each area of the city.  
@@ -402,7 +407,9 @@ plt.show()
 ```
 
 
+    
 ![png](index_files/index_40_0.png)
+    
 
 
 
@@ -429,7 +436,9 @@ plt.show()
 ```
 
 
+    
 ![png](index_files/index_42_0.png)
+    
 
 
 ## Summary
