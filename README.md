@@ -1,11 +1,12 @@
-
 # Looping Over Collections - Lab
 
 ## Introduction
 In this lab, we will be practicing what we know about `for` loops. We will use them to reduce the amount of code we write by hand to iterate through collections. We will use data from the excel file, `cities.xlsx`, that has data on different cities, their populations, and their areas. Finally, we will use this information to plot and compare each city. Let's get started!
 
 ## Objectives
+
 You will be able to:
+
 * Use a `for` loop to iterate over a collection
 
 ## Identifying When To Use a For Loop
