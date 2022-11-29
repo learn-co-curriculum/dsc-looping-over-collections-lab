@@ -115,7 +115,8 @@ buenos_aires
     {'City': 'Buenos Aires',
      'Country': 'Argentina',
      'Population': 2891000,
-     'Area': 4758}
+     'Area': 4758,
+     'Unnamed: 4': nan}
 
 
 
@@ -160,7 +161,7 @@ city_indices # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 ```python
 # __SOLUTION__ 
-city_indices = list(range(0,12))
+city_indices = list(range(0,len(cities)))
 city_indices # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 ```
 
@@ -249,6 +250,7 @@ names_and_ranks
 
 
 ```python
+# run this cell to check that your output matches the format
 print(names_and_ranks[0]) # '1. Buenos Aires'
 print(names_and_ranks[1]) # '2. Toronto'
 print(names_and_ranks[-1]) # '12. Iguazu Falls'
@@ -257,16 +259,14 @@ print(names_and_ranks[-1]) # '12. Iguazu Falls'
 
 ```python
 # __SOLUTION__ 
-names_and_ranks[0] # '1. Buenos Aires'
-names_and_ranks[1] # '2. Toronto'
-names_and_ranks[-1] # '12. Iguazu Falls'
+print(names_and_ranks[0]) # '1. Buenos Aires'
+print(names_and_ranks[1]) # '2. Toronto'
+print(names_and_ranks[-1]) # '12. Iguazu Falls'
 ```
 
-
-
-
-    '12. Iguazu Falls'
-
+    1. Buenos Aires
+    2. Toronto
+    12. Iguazu Falls
 
 
 Ok, now use another `for` loop to iterate through our list of `cities` and create a new list called `city_populations` that has the population for each city (`Population`).
@@ -315,16 +315,14 @@ print(city_populations[-1]) # 0
 
 ```python
 # __SOLUTION__ 
-city_populations[0] # 2891000
-city_populations[1] # 2800000
-city_populations[-1] # 0
+print(city_populations[0]) # 2891000
+print(city_populations[1]) # 2800000
+print(city_populations[-1]) # 0
 ```
 
-
-
-
+    2891000
+    2800000
     0
-
 
 
 Great! Now we can begin to plot this data. Again, we'll used `matplotlib` to create a bar graph with our cities and their respective population data. To do this, we use the `.bar()` function and pass in our x-axis and y-axis values, add a label and title, and finally we call the `.show()` function to view our new bar graph. 
