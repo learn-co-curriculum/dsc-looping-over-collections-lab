@@ -105,6 +105,7 @@ names_and_ranks
 
 
 ```python
+# run this cell to check that your output matches the format
 print(names_and_ranks[0]) # '1. Buenos Aires'
 print(names_and_ranks[1]) # '2. Toronto'
 print(names_and_ranks[-1]) # '12. Iguazu Falls'
